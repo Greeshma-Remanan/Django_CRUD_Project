@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+<!-- rendering templates-->
+{% load static %} 
+
+{% block body %}
+
+<img src="{% static 'download.jpg' %}">
+<h1><center><em>ADD MOBILE</em></center></h1>
+    <form method="post" enctype="multipart/form-data">
+        {%csrf_token%}
+        {{form.as_p}}
+        <button type="submit" class="btn btn-primary">Add Mobile</button>
+    </form>
+{% for i in messages %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>{{i}}</strong> 
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+{%endfor%}
+
+{%endblock%}

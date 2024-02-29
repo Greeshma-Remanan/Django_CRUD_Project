@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block body %}
+        <!-- <div class="container">
+        <form class="d-flex" role="search" method="post">
+            {%csrf_token%}
+            
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="brandname">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+                <button><a href="{% url 'add' %}">Add Mobile</a></button>
+    
+            
+        </form> -->
+   <table class="table table-bordered table-dark" align="center">
+    <center><u><h1>Mobile Details</h1></u></center>
+
+    <tr>
+        <th>Brand</th>
+        <th>Model</th>
+        <th>Price</th>
+        <th>Year</th>
+        <th>Color</th>
+        <th>Image</th>
+        <th>View</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+    {% for mobile in data%}
+    <tr>
+        <style>
+            table{
+                text-align: center;
+            }
+        </style>
+        <td>{{mobile.brand}}</td>
+        <td>{{mobile.model}}</td>
+        <td>{{mobile.price}}</td>
+        <td>{{mobile.year}}</td>
+        <td>{{mobile.color}}</td>
+        <td>
+            {% if mobile.image %}
+            <img src="{{ mobile.image.url }}" alt="img" width="65px" height="65px">
+            {% endif %}
+        </td>
+        <td>
+            <a class="btn btn-success" href="{% url 'mobile-det' mobile.id %}">View</a>
+        </td>
+        <td>
+            <a class="btn btn-success" href="{%url 'mobile-edit' mobile.id %}">Update</a>
+        </td>
+        <td>
+            <a class="btn btn-success" href="{%url 'mobile-del' mobile.id %}">Delete</a>
+        </td>
+        
+        
+
+
+    </tr>
+
+    {%endfor%}
+   </table>
+   
+{%endblock%}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<style>
+    /* Style for the form container */
+    .form-box {
+        width: 300px;
+        margin: auto;
+        padding: 20px;
+        background-color:rgb(96, 245, 175);
+        margin-top:20px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Style for form elements */
+    .form-box form label {
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    .form-box form input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 16px;
+        box-sizing: border-box;
+    }
+
+    .form-box form button {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+</style>
+<body>
+    <!-- <form method="post">
+        {%csrf_token%}
+        {{form.as_p}}
+        <button type="submit">Register</button>
+    </form> -->
+
+    <div class="form-box">
+        <h1>
+            <center><em>SIGNUP</center></em>
+        </h1>
+
+        <form method="post" class="form" align="center">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+    {% for i in messages %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>{{i}}</strong> 
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    {% endfor %}
+
+</body>
+</html>
